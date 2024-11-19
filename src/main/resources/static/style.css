@@ -4,11 +4,8 @@ html{
 body{
     background-color: #d6d2d2;
 }
-.catalog_title{
-    text-align: center;
-    font-size: 80px;
-}
-.drone-container{
+@media(min-width:400px){
+    .drone-container{
     width: 65%;
     height: 20%;
     border: 3px solid black;
@@ -52,4 +49,9 @@ body{
 .description{
     width: 100%;
     font-size: 22px;
+}
+}
+.catalog_title{
+    text-align: center;
+    font-size: 80px;
 }
