@@ -1,0 +1,54 @@
+html{
+    font-family: "Rubik", sans-serif;
+}
+body{
+    background-color: #d6d2d2;
+}
+.drone-container{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+}
+.drone-img{
+    width: 40%;
+    height: 40%;
+    border: 5px solid black;
+}
+.description{
+    width: 60%;
+    height: 60%;
+    font-size: 30px;
+    margin-left: 30px;
+}
+.imgs{
+    width: 100%;
+    height: 100%;
+}
+.drone-name{
+    font-size: 50px;
+    font-family: 800;
+}
+.name-block{
+    display: flex;
+    justify-content: center;
+}
+.frequency-form{
+    margin: auto;
+    width: 40%;
+    height: 10%;
+    margin-top: 40px;
+}
+.frequency-btn{
+    width: 100%;
+    height: 55px;
+    background-color: orange;
+    color: black;
+    font-size: 35px;
+    font-weight: 700;
+    border-radius: 15px;
+}
+.frequency-btn:hover{
+    border: 6px solid red;
+}

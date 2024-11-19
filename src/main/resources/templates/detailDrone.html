@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DronKat</title>
-    <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{selected.css}">
+    <link rel="stylesheet" th:href="@{header.css}">
     <!--    <link rel="stylesheet" href="../static/style.css">-->
 </head>
 
 <body>
-<header class="header">
-    <div class="logo">
-        <svg fill="#fff" height="60px" width="60px" version="1.1" id="Layer_1"
-             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 496 496"
-             xml:space="preserve">
+    <header class="header">
+        <div class="logo">
+            <svg fill="#fff" height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 496 496" xml:space="preserve">
                 <g>
                     <g>
                         <g>
                             <path
-                                    d="M467.152,248c-9.688,0-18.64,4.832-23.96,12.936l-45.832,69.872l-13.84-16.912C368.352,295.352,360,271.944,360,248
+                                d="M467.152,248c-9.688,0-18.64,4.832-23.96,12.936l-45.832,69.872l-13.84-16.912C368.352,295.352,360,271.944,360,248
                        c0-23.944,8.352-47.352,23.512-65.888l5.872-7.176l52.824,47.432c6.912,6.208,15.84,9.632,25.136,9.632
                        C483.152,232,496,219.152,496,203.344c0-9.864-4.96-18.896-13.272-24.176l-63.648-40.504l3.128-3.824
                        c6.312-7.736,9.792-17.488,9.792-27.464C432,83.464,412.536,64,388.624,64c-7.544,0-14.952,2-21.464,5.704L301.864,9.848
@@ -68,21 +68,21 @@
                        C367.176,392,360,384.824,360,376z M388.624,416c-6.296,0-12.456-2.192-17.336-6.184l-3.8-3.104
                        c2.728,0.752,5.544,1.288,8.512,1.288c11.048,0,20.8-5.624,26.552-14.168l12.136-13.336c0.816,2.624,1.312,5.352,1.312,8.128
                        C416,403.72,403.72,416,388.624,416z M474.448,291.008l-68.208,74.984c-1.296-3.912-3.304-7.456-5.912-10.536l56.24-85.736
-                       c2.352-3.576,6.304-5.72,10.776-5.72c6.976,0,12.656,5.68,12.656,12.656C480,281.976,478.032,287.08,474.448,291.008z"/>
+                       c2.352-3.576,6.304-5.72,10.776-5.72c6.976,0,12.656,5.68,12.656,12.656C480,281.976,478.032,287.08,474.448,291.008z" />
                             <path d="M248,176c-39.704,0-72,32.296-72,72s32.296,72,72,72c39.704,0,72-32.296,72-72C320,208.296,287.704,176,248,176z
-                        M248,304c-30.872,0-56-25.128-56-56s25.128-56,56-56s56,25.128,56,56S278.872,304,248,304z"/>
+                        M248,304c-30.872,0-56-25.128-56-56s25.128-56,56-56s56,25.128,56,56S278.872,304,248,304z" />
                         </g>
                     </g>
                 </g>
             </svg>
-    </div>
-    <div class="search_bar">
-        <form class="search_block" action="search" method="post">
-            <input class="search_input" type="text" name="str" placeholder="Пошук...">
-            <button class="search_btn" type="submit">
-                <svg fill="#fff" height="30px" width="30px" version="1.1"
-                     id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                     viewBox="0 0 297.001 297.001" xml:space="preserve">
+        </div>
+        <div class="search_bar">
+            <form class="search_block" action="search" method="post">
+                <input class="search_input" type="text" name="str" placeholder="Пошук...">
+                <button class="search_btn" type="submit">
+                    <svg fill="#fff" height="30px" width="30px" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 297.001 297.001" xml:space="preserve">
                         <g>
                             <g>
                                 <path d="M289.159,251.301l-82.514-82.513c-5.057-5.058-11.78-7.843-18.932-7.843c-3.63,0-7.149,0.721-10.396,2.089l-11.07-11.07
@@ -96,66 +96,74 @@
                        c-1.24-1.24-1.923-2.889-1.923-4.643c0-1.752,0.681-3.398,1.919-4.639c0.002-0.002,0.003-0.003,0.005-0.005
                        s0.003-0.004,0.005-0.005c1.24-1.237,2.886-1.918,4.638-1.918c1.755,0,3.403,0.683,4.644,1.924l4.643,4.643L187.713,197.006z
                         M274.871,274.876c-2.56,2.561-6.729,2.559-9.287,0l-63.582-63.582l9.287-9.287l63.582,63.582
-                       C277.431,268.15,277.431,272.316,274.871,274.876z"/>
+                       C277.431,268.15,277.431,272.316,274.871,274.876z" />
                             </g>
                         </g>
                     </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="drone-container" th:each="drone : ${drone}">
+            <div class="drone-img">
+                <img class="imgs" th:src="${drone.getPathToImg()}">
+            </div>
+            <div class="description">
+                <div class="name-block">
+                    <a class="drone-name" th:text="${drone.getName()}"></a>
+                </div>
+                <div>
+                    <a>Максимальна дальність польту (км):</a>
+                    <a th:text="${drone.getMaxFlightDistance()}"></a>
+                </div>
+                <div>
+                    <a>Бойовий радіус (км):</a>
+                    <a th:text="${drone.getCombatRadius}"></a>
+                </div>
+                <div>
+                    <a>Максимальна швидкість (км/год):</a>
+                    <a th:text="${drone.getMaxSpeed}"></a>
+                </div>
+                <div>
+                    <a>Максимальна висота польоту (км):</a>
+                    <a th:text="${drone.getMaxFlightAltitude}"></a>
+                </div>
+                <div>
+                    <a>Тривалість польоту (год):</a>
+                    <a th:text="${drone.getMaxFlightDuration}"></a>
+                </div>
+                <div>
+                    <a>Маса корисного навантаження (км):</a>
+                    <a th:text="${drone.getPayloadWeight}"></a>
+                </div>
+                <div>
+                    <a>Маса бойовиої частини(кг):</a>
+                    <a th:text="${drone.getWarheadWeight}"></a>
+                </div>
+                <div>
+                    <a>Розмах крил (м):</a>
+                    <a th:text="${drone.getWingspan}"></a>
+                </div>
+                <div>
+                    <a>Довжина (м):</a>
+                    <a th:text="${drone.getLength}"></a>
+                </div>
+                <div>
+                    <a>Силова установка (тип двигуна):</a>
+                    <a th:text="${drone.getEngineType}"></a>
+                </div>
+            </div>
+        </div>
+        <form action="/notReady" class="frequency-form">
+            <button class="frequency-btn" type="submit">
+                <a>Переглянути спектр частот</a>
             </button>
         </form>
-    </div>
-</header>
-<main>
-    <div class="main_catalog">
-        <div class="drone-img">
-            <img class="imgs" th:src="${drone.getPathToImg()}">
-        </div>
-        <div class="description">
-            <div class="name-block">
-                <a class="drone-name" th:text="${drone.getName()}"></a>
-            </div>
-            <div>
-                <a>Максимальна дальність польту (км):</a>
-                <a th:text="${drone.getMaxFlightDistance()}"></a>
-            </div>
-            <div>
-                <a>Бойовий радіус (км):</a>
-                <a th:text="${drone.getCombatRadius}"></a>
-            </div>
-            <div>
-                <a>Максимальна швидкість (км/год):</a>
-                <a th:text="${drone.getMaxSpeed}"></a>
-            </div>
-            <div>
-                <a>Максимальна висота польоту (км):</a>
-                <a th:text="${drone.getMaxFlightAltitude}"></a>
-            </div>
-            <div>
-                <a>Тривалість польоту (год):</a>
-                <a th:text="${drone.getMaxFlightDuration}"></a>
-            </div>
-            <div>
-                <a>Маса корисного навантаження (км):</a>
-                <a th:text="${drone.getPayloadWeight}"></a>
-            </div>
-            <div>
-                <a>Маса бойовиої частини(кг):</a>
-                <a th:text="${drone.getWarheadWeight}"></a>
-            </div>
-            <div>
-                <a>Розмах крил (м):</a>
-                <a th:text="${drone.getWingspan}"></a>
-            </div>
-            <div>
-                <a>Довжина (м):</a>
-                <a th:text="${drone.getLength}"></a>
-            </div>
-            <div>
-                <a>Силова установка (тип двигуна):</a>
-                <a th:text="${drone.getEngineType}"></a>
-            </div>
-        </div>
-    </div>
-</main>
+    </main>
 </body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
 
 </html>

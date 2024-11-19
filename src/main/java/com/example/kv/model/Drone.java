@@ -1,9 +1,6 @@
 package com.example.kv.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Drone {
@@ -32,10 +29,12 @@ public class Drone {
     // Силова установка (тип двигуна)
     private String engineType;
     private String pathToImg;
+    @Column(length = 10000)
+    private String description;
 
     public Drone(String name, double maxFlightDistance, double combatRadius, double maxSpeed, double maxFlightAltitude,
                  double maxFlightDuration, double warheadWeight, double payloadWeight, double wingspan,
-                 double length, String engineType, String pathToImg) {
+                 double length, String engineType) {
         this.maxFlightDistance = maxFlightDistance;
         this.combatRadius = combatRadius;
         this.maxSpeed = maxSpeed;
@@ -47,11 +46,14 @@ public class Drone {
         this.length = length;
         this.engineType = engineType;
         this.name = name;
-        this.pathToImg = pathToImg;
     }
 
     public Drone() {
 
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getName() {
