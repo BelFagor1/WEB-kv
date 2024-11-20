@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -56,5 +57,24 @@ public class MainController {
     public String logout(HttpSession session){
         session.invalidate();
         return "redirect:/login";
+    }
+    List<Drone> droneList;
+    @PostMapping("/search")
+    public String search(Model model, HttpSession session, @RequestParam String str){
+        User currentUser = (User) session.getAttribute("user");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
+        droneList = droneRepository.findByNameContaining(str);
+        return "redirect:/search";
+    }
+    @GetMapping("/search")
+    public String search(Model model, HttpSession session){
+        User currentUser = (User) session.getAttribute("user");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("droneList", droneList);
+        return "search";
     }
 }

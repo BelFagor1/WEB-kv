@@ -21,6 +21,11 @@ body{
         justify-content: center;
         align-items: center;
     }
+    .logo-btn{
+        background-color: #000;
+        border: none;
+        cursor: pointer;
+    }
     .search_bar{
         width: 365px;
         height: 40px;
@@ -118,6 +123,11 @@ body{
         align-items: center;
         margin-left: 15px;
     }
+    .logo-btn{
+        background-color: #000;
+        border: none;
+        cursor: pointer;
+    }
     .search_bar{
         width: 20%;
         height: 40px;
@@ -127,6 +137,7 @@ body{
         background-color: #000;
         margin-left: 15px;
         border: none;
+        cursor: pointer;
     }
     .search_input{
         width: 120px;
@@ -138,6 +149,7 @@ body{
         height: 100%;
         display: flex;
         align-items: center;
+        cursor: pointer;
     }
     .back_photo{
         width: 100%;

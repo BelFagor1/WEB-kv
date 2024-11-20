@@ -11,15 +11,18 @@
 </head>
 
 <body>
-<header class="header">
-    <div class="logo">
-        <svg fill="#fff" height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 496 496" xml:space="preserve">
-                <g>
-                    <g>
+    <header class="header">
+        <div class="logo">
+            <form action="/" method="get">
+                <button class="logo-btn">
+                    <svg fill="#fff" height="60px" width="60px" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 496 496" xml:space="preserve">
                         <g>
-                            <path
-                                    d="M467.152,248c-9.688,0-18.64,4.832-23.96,12.936l-45.832,69.872l-13.84-16.912C368.352,295.352,360,271.944,360,248
+                            <g>
+                                <g>
+                                    <path
+                                        d="M467.152,248c-9.688,0-18.64,4.832-23.96,12.936l-45.832,69.872l-13.84-16.912C368.352,295.352,360,271.944,360,248
                        c0-23.944,8.352-47.352,23.512-65.888l5.872-7.176l52.824,47.432c6.912,6.208,15.84,9.632,25.136,9.632
                        C483.152,232,496,219.152,496,203.344c0-9.864-4.96-18.896-13.272-24.176l-63.648-40.504l3.128-3.824
                        c6.312-7.736,9.792-17.488,9.792-27.464C432,83.464,412.536,64,388.624,64c-7.544,0-14.952,2-21.464,5.704L301.864,9.848
@@ -69,20 +72,23 @@
                        c2.728,0.752,5.544,1.288,8.512,1.288c11.048,0,20.8-5.624,26.552-14.168l12.136-13.336c0.816,2.624,1.312,5.352,1.312,8.128
                        C416,403.72,403.72,416,388.624,416z M474.448,291.008l-68.208,74.984c-1.296-3.912-3.304-7.456-5.912-10.536l56.24-85.736
                        c2.352-3.576,6.304-5.72,10.776-5.72c6.976,0,12.656,5.68,12.656,12.656C480,281.976,478.032,287.08,474.448,291.008z" />
-                            <path d="M248,176c-39.704,0-72,32.296-72,72s32.296,72,72,72c39.704,0,72-32.296,72-72C320,208.296,287.704,176,248,176z
+                                    <path d="M248,176c-39.704,0-72,32.296-72,72s32.296,72,72,72c39.704,0,72-32.296,72-72C320,208.296,287.704,176,248,176z
                         M248,304c-30.872,0-56-25.128-56-56s25.128-56,56-56s56,25.128,56,56S278.872,304,248,304z" />
+                                </g>
+                            </g>
                         </g>
-                    </g>
-                </g>
-            </svg>
-    </div>
-    <div class="search_bar">
-        <form class="search_block" action="search" method="post">
-            <input class="search_input" type="text" name="str" placeholder="Пошук...">
-            <button class="search_btn" type="submit">
-                <svg fill="#fff" height="30px" width="30px" version="1.1" id="Layer_1"
-                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                     viewBox="0 0 297.001 297.001" xml:space="preserve">
+                    </svg>
+                </button>
+            </form>
+
+        </div>
+        <div class="search_bar">
+            <form class="search_block" action="/search" method="post">
+                <input class="search_input" type="text" name="str" placeholder="Пошук...">
+                <button class="search_btn" type="submit">
+                    <svg fill="#fff" height="30px" width="30px" version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 297.001 297.001" xml:space="preserve">
                         <g>
                             <g>
                                 <path d="M289.159,251.301l-82.514-82.513c-5.057-5.058-11.78-7.843-18.932-7.843c-3.63,0-7.149,0.721-10.396,2.089l-11.07-11.07
@@ -100,15 +106,15 @@
                             </g>
                         </g>
                     </svg>
-            </button>
-        </form>
-    </div>
-    <div class="logout">
-        <form class="logout-form" action="/logout" method="post">
-        <button class="logout-btn" type="submit"><a>Вийти</a></button>
-    </form>
-    </div>
-</header>
+                </button>
+            </form>
+        </div>
+        <div class="logout">
+            <form class="logout-form" action="/logout" method="post">
+                <button class="logout-btn" type="submit"><a>Вийти</a></button>
+            </form>
+        </div>
+    </header>
 <main>
     <h1>In next update</h1>
 </main>
