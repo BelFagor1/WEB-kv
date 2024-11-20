@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{login.css}">
+</head>
+
+<body>
+<div class="title">
+    <a>Для подальшої роботи вам треба авторизуватись</a>
+</div>
+<div class="error-container" th:each="error : ${error}">
+    <div class="error-mess">
+        <a th:text="${error.getMessage()}"></a>
+    </div>
+
+</div>
+<form class="error-form" action="/login" method="get">
+    <button class="error-btn"><a>Try again</a></button>
+</form>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+</style>
+</body>
+</html>

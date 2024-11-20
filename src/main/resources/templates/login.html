@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{login.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="title">
+        <a>Для подальшої роботи вам треба авторизуватись</a>
+    </div>
+    <div class="form">
+        <div class="container up">
+            <button id="sign-in"><a>SIGN IN</a></button>
+            <button id="sign-up"><a>SIGN UP</a></button>
+        </div>
+        <div class="container down">
+            <div id="login-container">
+                <form action="/login" method="post">
+                    <div class="fiel">
+                        <label class="text">Email:</label>
+                        <input class="input-block" type="text" th:name="email" />
+                    </div>
+                    <div class="fiel">
+                        <label class="text">Password:</label>
+                        <input class="input-block" type="password" th:name="password" />
+                    </div>
+                    <div class="fiel">
+                        <button class="btn" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div id="registration-container">
+                <form action="/registration" method="post">
+                    <div class="fiel">
+                        <label class="text">Email:</label>
+                        <input class="input-block" id="email" type="text" th:name="email" />
+                    </div>
+                    <div class="fiel">
+                        <label class="text">Password:</label>
+                        <input class="input-block" type="password" th:name="password" />
+                    </div>
+                    <div class="fiel">
+                        <label class="text">Repeat password:</label>
+                        <input class="input-block" type="password" th:name="repeatPassword" />
+                    </div>
+                    <div class="fiel code" id="code-input">
+                        <label class="text">Verification code:</label>
+                        <input class="input-block" type="text" th:name="code" />
+                    </div>
+                    <div class="fiel">
+                        <button class="btn" id="hide" type="submit">Register</button>
+                    </div>
+                </form>
+                <div class="fiel">
+                    <button class="btn" id="code">Send code</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script th:src="@{/login.js}"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+        </style>
+</body>
+</html>
