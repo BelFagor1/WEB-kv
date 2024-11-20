@@ -108,6 +108,38 @@ body {
     #hide {
         display: none;
     }
+    .error-container{
+        width: 80%;
+        height: 80%;
+        border: 3px solid black;
+        background-color: rgba(51, 84, 138, 0.5);
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .error-mess{
+        font-size: 30px;
+        font-weight: 500;
+        color: white;
+        padding: 15px 15px;
+    }
+    .error-btn{
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+        font-weight: 400;
+        border-radius: 15px;
+        border: 3px solid black;
+        background-color: #1d6ff2;
+        cursor: pointer;
+    }
+    .error-form{
+        width: 70%;
+        height: 20%;
+        margin: auto;
+        margin-top: 5%;
+    }
 }
 @media(min-width:401px) {
     #login-container {
