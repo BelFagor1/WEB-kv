@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Спектрограмма</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h1>Визуализация спектра</h1>
+<canvas id="spectrumChart" width="800" height="400"></canvas>
+<script>
+    // Получение сигнала из JSON-файла на сервере
+    fetch('/signal') // Запрос к серверу
+        .then(response => response.json()) // Парсим JSON
+        .then(signal => {
+            // Отправка сигнала на сервер для обработки FFT
+            return fetch('/process', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(signal)
+            });
+        })
+        .then(response => response.json())
+        .then(magnitudes => {
+            // Отображение спектра на графике
+            const ctx = document.getElementById('spectrumChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: magnitudes.map((_, i) => i), // Индексы частот
+                    datasets: [{
+                        label: 'Амплитуда',
+                        data: magnitudes,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { title: { display: true, text: 'Частота (Гц)' } },
+                        y: { title: { display: true, text: 'Амплитуда' } }
+                    }
+                }
+            });
+        })
+        .catch(err => console.error('Ошибка:', err));
+</script>
+</body>
+</html>

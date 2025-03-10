@@ -116,40 +116,44 @@
         </div>
     </header>
     <main>
-        <div class="back_photo">
-            <div class="about_us">
-                <h2>Про нас</h2>
-                <a>DronKat - це каталог створений спеціалізовано для військових. Це каталог який містить в собі зібрану
-                    та структуровану інформацію щодо відомих комплексів БПЛА. Головна ціль проекту це полегшення роботи
-                    військових зокремa ланки розвідки в ідентифікації виявленої повітряної одиниці.</a>
-            </div>
-            <div class="title">
-                <a>Найбільший ресурс по дронам для військових</a>
-            </div>
-        </div>
+        <!--        <div class="back_photo">-->
+        <!--            <div class="about_us">-->
+        <!--                <h2>Про нас</h2>-->
+        <!--                <a>DronKat - це каталог створений спеціалізовано для військових. Це каталог який містить в собі зібрану-->
+        <!--                    та структуровану інформацію щодо відомих комплексів БПЛА. Головна ціль проекту це полегшення роботи-->
+        <!--                    військових зокремa ланки розвідки в ідентифікації виявленої повітряної одиниці.</a>-->
+        <!--            </div>-->
+        <!--            <div class="title">-->
+        <!--                <a>Найбільший ресурс по дронам для військових</a>-->
+        <!--            </div>-->
+        <!--        </div>-->
         <div class="main_catalog">
             <div class="catalog_title">
                 <a>Каталог</a>
             </div>
             <div class="catalog-container">
-                <div class="drone-container" th:each="drone : ${droneList}">
-                    <form class="form-container" th:action="@{/selected/{id}(id=${drone.getId()})}" method="post">
-                        <input type="hidden" th:value="${drone.getId()}" name="droneId">
-                        <button type="submit" class="last-container">
-                            <div class="drone-img">
-                                <img class="imgs" th:src="${drone.getPathToImg()}">
-                            </div>
-                            <div class="description">
-                                <div class="name-block">
-                                    <a class="drone-name title-name" th:text="${drone.getName()}"></a>
+                <div class="logo-kaf">
+                    <img class="logo-img" th:src="@{/img/logo_kaf_22.png}">
+                </div>
+                <div class="catalog-container-main">
+                    <div class="drone-container" th:each="drone : ${droneList}">
+                        <form class="form-container" th:action="@{/selected/{id}(id=${drone.getId()})}" method="post">
+                            <input type="hidden" th:value="${drone.getId()}" name="droneId">
+                            <button type="submit" class="last-container">
+                                <div class="drone-img">
+                                    <img class="imgs" th:src="${drone.getPathToImg()}">
                                 </div>
-                                <a th:text="${drone.getDescription()}"></a>
-                            </div>
-                        </button>
-                    </form>
+                                <div class="description">
+                                    <div class="name-block">
+                                        <a class="drone-name title-name" th:text="${drone.getName()}"></a>
+                                    </div>
+                                    <a th:text="${drone.getDescription()}"></a>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-
         </div>
     </main>
     <style>

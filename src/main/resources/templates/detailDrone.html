@@ -165,12 +165,26 @@
                     <a th:text="${drone.getEngineType}"></a>
                 </div>
             </div>
+            <div>
+                <form id="uploadForm" action="/api/files/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file" required>
+                    <input type="hidden" name="droneID" th:value="${drone.getId}">
+                    <button type="submit">Загрузить</button>
+                </form>
+            </div>
         </div>
-        <form action="/notReady" class="frequency-form">
+        <form action="/notReady" class="frequency-form" method="get">
             <button class="frequency-btn" type="submit">
                 <a>Переглянути спектр частот</a>
             </button>
         </form>
+        <div th:each="file : ${files}">
+            <form  th:action="@{/api/files/download/{id}(id=${file.getId})}" class="download" method="get">
+                <button class="download-btn" type="submit">
+                    <a th:text="${file.getName}"></a>
+                </button>
+            </form>
+        </div>
     </main>
 </body>
 <style>

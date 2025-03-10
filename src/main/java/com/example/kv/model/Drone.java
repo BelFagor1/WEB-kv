@@ -1,8 +1,10 @@
 package com.example.kv.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Drone {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,59 +54,5 @@ public class Drone {
 
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getMaxFlightDistance() {
-        return maxFlightDistance;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getPathToImg() {
-        return pathToImg;
-    }
-
-    public double getCombatRadius() {
-        return combatRadius;
-    }
-
-    public double getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public double getMaxFlightAltitude() {
-        return maxFlightAltitude;
-    }
-
-    public double getMaxFlightDuration() {
-        return maxFlightDuration;
-    }
-
-    public double getWarheadWeight() {
-        return warheadWeight;
-    }
-
-    public double getPayloadWeight() {
-        return payloadWeight;
-    }
-
-    public double getWingspan() {
-        return wingspan;
-    }
-
-    public double getLength() {
-        return length;
-    }
-
-    public String getEngineType() {
-        return engineType;
-    }
 }
