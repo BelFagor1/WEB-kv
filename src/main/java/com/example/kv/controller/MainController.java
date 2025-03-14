@@ -1,12 +1,10 @@
 package com.example.kv.controller;
 
-import com.example.kv.model.Drone;
-import com.example.kv.model.DroneToFile;
-import com.example.kv.model.FileEntity;
-import com.example.kv.model.User;
+import com.example.kv.model.*;
 import com.example.kv.repo.DroneRepository;
 import com.example.kv.repo.DroneToFileRepository;
 import com.example.kv.repo.FileRepository;
+import com.example.kv.repo.SuperPasswordRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +37,11 @@ public class MainController {
         return "index";
     }
     @PostMapping("/selected/{id}")
-    public String res(@PathVariable(value = "id") long id, Model model, Model model2, HttpSession session){
+    public String res(@PathVariable(value = "id") long id, Model model, HttpSession session){
+        User currentUser = (User) session.getAttribute("user");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
         Drone drone = droneRepository.findById(id).get();
         model.addAttribute("drone", drone);
         ArrayList<DroneToFile> list = new ArrayList<>();
@@ -53,28 +55,9 @@ public class MainController {
         for (DroneToFile link : list){
             files.add(fileRepository.findById(link.getFileID()).get());
         }
-        System.out.println(files.size());
-        model2.addAttribute("files", files);
-        return "redirect:/selected";
-    }
-    @GetMapping("/selected")
-    public String drones(Model model, Model model2, HttpSession session){
-        User currentUser = (User) session.getAttribute("user");
-
-        if (currentUser == null) {
-            return "redirect:/login";
-        }
+        model.addAttribute("files", files);
         return "detailDrone";
     }
-//    @GetMapping("/notReady")
-//    public String notReady(Model model,HttpSession session){
-//        User currentUser = (User) session.getAttribute("user");
-//
-//        if (currentUser == null) {
-//            return "redirect:/login";
-//        }
-//        return "notReady";
-//    }
     @PostMapping("/logout")
     public String logout(HttpSession session){
         session.invalidate();

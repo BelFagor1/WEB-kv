@@ -72,5 +72,103 @@ main{
 .catalog_title{
     text-align: center;
     font-size: 80px;
-    
+    cursor: default;
+}
+.function{
+    width: 60%;
+    height: 50px;
+    margin: auto;
+    margin-top: 30px;
+    border: 3px solid black;
+}
+.function-form{
+    width: 100%;
+    height: 100%;
+}
+.function-btn{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 84, 138, 0.5);
+    cursor: pointer;
+}
+.function:hover{
+    border-color: orange;
+}
+.function-text{
+    font-size: 30px;
+}
+.generator-block{
+    width: 70%;
+    height: 370px;
+    border: 3px solid black;
+    margin: auto;
+    margin-top: 2%;
+    background-color: rgba(51, 84, 138, 0.5);
+}
+.text-token{
+    font-size: 30px;
+    cursor: default;
+}
+.block-text{
+    width: 70%;
+    margin: auto;
+    margin-top: 5%;
+}
+.create-token-block{
+    width: 50%;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+}
+#create-token{
+    width: 100%;
+    height: 40px;
+    background-color: orange;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.confirm-block{
+    margin-top: 20px;
+}
+.btns{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+#field{
+    width: 100%;
+    height: 40px;
+    font-size: 26px;
+    border-radius: 15px;
+}
+.central{
+    width: 70%;
+    margin: auto;
+}
+.btn-1{
+    background-color: orange;
+    width: 44%;
+    height: 38px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.warning-mess{
+    width: 80%;
+    height: 60px;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 32px;
+    cursor: default;
+}
+.imgsSpec{
+    width: 150px;
+    height: 150px;
+}
+.drone-imgSpec{
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    margin: 5px 5px 5px 5px;
 }

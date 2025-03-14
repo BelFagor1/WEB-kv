@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DronKat</title>
+    <link rel="stylesheet" href="/selected.css">
+    <link rel="stylesheet" href="/header.css">
+</head>
+
+<body>
+    <div th:replace="header :: header"></div>
+    <main>
+        <div class="drone-container" th:each="drone : ${drone}">
+            <div class="drone-img">
+                <img class="imgs" th:src="${drone.getPathToImg()}">
+            </div>
+            <div class="description">
+                <div class="name-block">
+                    <a class="drone-name" th:text="${drone.getName()}"></a>
+                </div>
+                <div class="upload-div">
+                    <form id="uploadForm" action="/api/files/upload" method="POST" enctype="multipart/form-data">
+                        <input class="upload-input" type="file" name="file" required>
+                        <input type="hidden" name="droneID" th:value="${drone.getId}">
+                        <button class="upload-button" type="submit">Завантажити</button>
+                    </form>
+                </div>
+                <div class="name-block">
+                    <a class="drone-name">Поточні файли</a>
+                </div>
+                <div class="download-delete">
+                    <div class="download-list">
+                        <div th:each="file : ${files}">
+                            <form th:action="@{/api/files/download/{id}(id=${file.getId})}" class="downloadSpec"
+                                  method="get">
+                                <button class="download-btnSpec" type="submit">
+                                    <a th:text="${file.getFileName()}"></a>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAg0lEQVR4nO2UOwqAMBBE3zWsLCxsLLSw8vYGPYSghYVgIR4hErAQ/58EQfNgIBCYIRN24U9kgBwlTATImWzAAmkr+l5F1Yrplso7ATHQnTDvgeTuKyKg3TFXdyEP8YF6xbwBAjThAsXEXP2Ph2YcIB+3qjpb9CMuDJY8kDAdkBoo4CUG+aZ0PJTVTQsAAAAASUVORK5CYII="
+                                         alt="download--v1">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="delete-list">
+                        <div th:each="file : ${files}">
+                            <form th:action="@{/api/files/delete/{id}(id=${file.getId})}" th:id="'myForm-' + ${file.getId}" class="deleteSpec" method="post">
+                                <button class="delete-btnSpec" type="button" th:id="'openModalBtn-' + ${file.getId}">
+                                    <svg fill="#000000" height="100%" width="100%" version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="0 0 330 330" xml:space="preserve">
+                                    <g id="XMLID_6_">
+                                        <g id="XMLID_11_">
+                                            <path d="M240,121.076H30V275c0,8.284,6.716,15,15,15h60h37.596c19.246,24.348,49.031,40,82.404,40c57.897,0,105-47.103,105-105
+			C330,172.195,290.816,128.377,240,121.076z M225,300c-41.355,0-75-33.645-75-75s33.645-75,75-75s75,33.645,75,75
+			S266.355,300,225,300z" />
+                                        </g>
+                                        <g id="XMLID_18_">
+                                            <path d="M240,90h15c8.284,0,15-6.716,15-15s-6.716-15-15-15h-30h-15V15c0-8.284-6.716-15-15-15H75c-8.284,0-15,6.716-15,15v45H45
+			H15C6.716,60,0,66.716,0,75s6.716,15,15,15h15H240z M90,30h90v30h-15h-60H90V30z" />
+                                        </g>
+                                        <g id="XMLID_23_">
+                                            <path d="M256.819,193.181c-5.857-5.858-15.355-5.858-21.213,0L225,203.787l-10.606-10.606c-5.857-5.858-15.355-5.858-21.213,0
+			c-5.858,5.858-5.858,15.355,0,21.213L203.787,225l-10.606,10.606c-5.858,5.858-5.858,15.355,0,21.213
+			c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.465,10.607-4.394L225,246.213l10.606,10.606
+			c2.929,2.929,6.768,4.394,10.607,4.394c3.839,0,7.678-1.465,10.606-4.394c5.858-5.858,5.858-15.355,0-21.213L246.213,225
+			l10.606-10.606C262.678,208.535,262.678,199.039,256.819,193.181z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="confirmModal" class="modal">
+            <div class="modal-content">
+                <p>Вы уверены, что хотите отправить форму?</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-confirm" id="confirmBtn">Да</button>
+                    <button class="btn btn-cancel" id="cancelBtn">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="/modal.js"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+</style>
+
+</html>

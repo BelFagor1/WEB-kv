@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DronKat</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/media.css">
+</head>
+
+<body>
+<div th:replace="header :: header"></div>
+<main>
+    <div class="main_catalog">
+        <div class="catalog_title">
+            <a>Адмін меню</a>
+        </div>
+        <div class="catalog-container">
+            <div class="logo-kaf">
+                <img class="logo-img" th:src="@{/img/logo_kaf_22.png}">
+            </div>
+            <div class="catalog-container-main">
+                <div class="function">
+                    <form class="function-form" action="/token/generator" method="get">
+                        <button class="function-btn" type="submit">
+                            <a class="function-text">Генератор токенів</a>
+                        </button>
+                    </form>
+                </div>
+                <div class="function">
+                    <form class="function-form" action="/upload/list" method="get">
+                        <button class="function-btn" type="submit">
+                            <a class="function-text">Завантаження документів</a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+</style>
+</body>
+
+</html>
