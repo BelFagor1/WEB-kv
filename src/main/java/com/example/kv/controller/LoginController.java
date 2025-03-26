@@ -4,7 +4,7 @@ import com.example.kv.data.EmailRequest;
 import com.example.kv.data.ErrorMessage;
 import com.example.kv.data.PasswordHashingUtil;
 import com.example.kv.model.User;
-import com.example.kv.model.enumeration.UserType;
+//import com.example.kv.model.enumeration.UserType;
 import com.example.kv.repo.UserRepository;
 import com.example.kv.service.EmailService;
 import jakarta.servlet.http.HttpSession;

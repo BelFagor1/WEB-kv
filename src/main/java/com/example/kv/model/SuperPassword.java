@@ -1,10 +1,9 @@
 package com.example.kv.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+
 
 @Entity
-@Data
 public class SuperPassword {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,5 +16,21 @@ public class SuperPassword {
     }
 
     public SuperPassword() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 }

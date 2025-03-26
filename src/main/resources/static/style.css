@@ -113,6 +113,7 @@ main{
     width: 70%;
     margin: auto;
     margin-top: 5%;
+    text-align: center;
 }
 .create-token-block{
     width: 50%;
@@ -171,4 +172,101 @@ main{
     height: 150px;
     border: 2px solid black;
     margin: 5px 5px 5px 5px;
+}
+.drone-create-form{
+    display: flex;
+    flex-direction: column;
+}
+.create-drone-block{
+    width: 70%;
+    height: fit-content;
+    border: 3px solid black;
+    margin: auto;
+    margin-top: 2%;
+    background-color: rgba(51, 84, 138, 0.5);
+    margin-bottom: 30px;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+.create-input-area{
+    width: 100%;
+    height: 40px;
+    font-size: 26px;
+    border-radius: 15px;
+}
+.create-input-textarea{
+    font-size: 18px;
+    border-radius: 15px;
+}
+.create-input-img{
+    width: 100%;
+        background-color: #fff;
+        border-radius: 20px;
+        font-size: 20px;
+        height: 30px;
+}
+input[type="file"]::file-selector-button {
+    background: rgba(51, 84, 138, 0.5);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 30px;
+}
+.create-drone-btn{
+    background-color: orange;
+    width: 50%;
+    height: 38px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: auto;
+}
+.status-bloc{
+    width: 70%;
+    height: 150px;
+    border: 3px solid black;
+    margin: auto;
+    margin-top: 2%;
+    background-color: rgba(51, 84, 138, 0.5);
+    margin-bottom: 15px;
+    text-align: center;
+}
+.status-bloc-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.text-status{
+    font-size: 24px;
+    cursor: default;
+}
+.text-status-title{
+    font-size: 30px;
+    cursor: default;
+}
+.status-button{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: orange;
+    cursor: pointer;
+    
+}
+.status-form{
+    width: 45%;
+    margin-top: 15px;
+}
+.text-status-list{
+    font-size: 36px;
+    cursor: default;
+}
+.status-margin{
+    margin-top: 25px;
+}
+.title-name-list{
+    font-size: 36px;
 }

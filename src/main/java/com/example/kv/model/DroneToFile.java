@@ -4,10 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+
 
 @Entity
-@Data
 public class DroneToFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +19,29 @@ public class DroneToFile {
     }
 
     public DroneToFile() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getDroneID() {
+        return droneID;
+    }
+
+    public void setDroneID(long droneID) {
+        this.droneID = droneID;
+    }
+
+    public long getFileID() {
+        return fileID;
+    }
+
+    public void setFileID(long fileID) {
+        this.fileID = fileID;
     }
 }

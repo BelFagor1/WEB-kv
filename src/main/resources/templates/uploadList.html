@@ -26,15 +26,43 @@
             </div>
             <div class="catalog-container-main">
                 <div class="drone-container" th:each="drone : ${droneList}">
-                    <form class="form-container" th:action="@{/upload/selected/{id}(id=${drone.getId()})}" method="post">
+                    <form class="form-container" th:action="@{upload/selected/{id}(id=${drone.getId()})}" method="post">
                         <input type="hidden" th:value="${drone.getId()}" name="droneId">
                         <button type="submit" class="last-container">
                             <div class="drone-imgSpec">
-                                <img class="imgsSpec" th:src="${drone.getPathToImg()}">
+                                <img class="imgsSpec" th:src="@{'/entity/' + ${drone.getId()} + '/image'}" alt="Image">
                             </div>
                             <div class="description">
                                 <div class="name-block">
-                                    <a class="drone-name title-name" th:text="${drone.getName()}"></a>
+                                    <a class="drone-name title-name-list" th:text="${drone.getName()}"></a>
+                                </div>
+                                <div class="status-margin" th:switch="${drone.getStatus()}">
+                                    <div th:case="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                                             class="bi bi-incognito" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                        <a class="text-status-list">Прихований</a>
+                                    </div>
+                                    <div th:case="true">
+                                        <svg fill="#37d75f" height="36px" width="36px" version="1.1" id="Filled_Icons"
+                                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24"
+                                             xml:space="preserve">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                            <g id="SVGRepo_iconCarrier">
+                                        <g id="Status-Approved-Filled">
+                                            <path
+                                                    d="M12,0C5.4,0,0,5.4,0,12s5.4,12,12,12s12-5.4,12-12S18.6,0,12,0z M9.5,18.3l-5.6-5.7l1.8-1.8l3.9,3.9l8.4-8.4l1.8,1.8 L9.5,18.3z" />
+                                        </g>
+                                    </g>
+
+                                </svg>
+                                        <a class="text-status-list">Відображений</a>
+                                    </div>
+                                    <div th:case="*">Статус невідомий</div>
                                 </div>
                             </div>
                         </button>

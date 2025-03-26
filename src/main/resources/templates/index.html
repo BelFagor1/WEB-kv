@@ -22,12 +22,14 @@
                     <img class="logo-img" th:src="@{/img/logo_kaf_22.png}">
                 </div>
                 <div class="catalog-container-main">
-                    <div class="drone-container" th:each="drone : ${droneList}">
-                        <form class="form-container" th:action="@{/selected/{id}(id=${drone.getId()})}" method="post">
+                    <div  class="drone-container" th:each="drone : ${droneList}"
+                          th:if="${drone.getStatus() == true}">
+                        <form  class="form-container" th:action="@{/selected/{id}(id=${drone.getId()})}" method="post">
                             <input type="hidden" th:value="${drone.getId()}" name="droneId">
                             <button type="submit" class="last-container">
                                 <div class="drone-img">
-                                    <img class="imgs" th:src="${drone.getPathToImg()}">
+                                    <img class="imgs" th:src="@{'/entity/' + ${drone.getId()} + '/image'}" alt="Image">
+
                                 </div>
                                 <div class="description">
                                     <div class="name-block">

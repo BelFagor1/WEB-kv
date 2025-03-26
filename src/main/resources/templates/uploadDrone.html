@@ -14,7 +14,7 @@
     <main>
         <div class="drone-container" th:each="drone : ${drone}">
             <div class="drone-img">
-                <img class="imgs" th:src="${drone.getPathToImg()}">
+                <img class="imgs" th:src="@{'/entity/' + ${drone.getId()} + '/image'}" alt="Image">
             </div>
             <div class="description">
                 <div class="name-block">
@@ -78,10 +78,10 @@
         </div>
         <div id="confirmModal" class="modal">
             <div class="modal-content">
-                <p>Вы уверены, что хотите отправить форму?</p>
+                <p>Видалити данний файл з сторінки?</p>
                 <div class="modal-buttons">
-                    <button class="btn btn-confirm" id="confirmBtn">Да</button>
-                    <button class="btn btn-cancel" id="cancelBtn">Отмена</button>
+                    <button class="btn btn-confirm" id="confirmBtn">Так</button>
+                    <button class="btn btn-cancel" id="cancelBtn">Назад</button>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@
     <main>
         <div class="drone-container" th:each="drone : ${drone}">
             <div class="drone-img">
-                <img class="imgs" th:src="${drone.getPathToImg()}">
+                <img class="imgs" th:src="@{'/entity/' + ${drone.getId()} + '/image'}" alt="Image">
             </div>
             <div class="description">
                 <div class="name-block">

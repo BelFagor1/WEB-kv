@@ -7,11 +7,18 @@ import com.example.kv.repo.FileRepository;
 import com.example.kv.repo.SuperPasswordRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -82,4 +89,24 @@ public class MainController {
         model.addAttribute("droneList", droneList);
         return "search";
     }
+    @GetMapping("/entity/{id}/image")
+    public ResponseEntity<byte[]> getEntityImage(@PathVariable Long id) {
+        byte[] image = droneRepository.findById(id).get().getImage();
+        if (image == null) {
+            return ResponseEntity.notFound().build();
+        }
+        String mimeType = null;
+        try {
+            mimeType = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(image));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if (mimeType == null) {
+            mimeType = MediaType.APPLICATION_OCTET_STREAM_VALUE; // На случай, если не удалось определить
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType(mimeType)); // Или IMAGE_PNG, если у вас PNG
+        return new ResponseEntity<>(image, headers, HttpStatus.OK);
+    }
+
 }
